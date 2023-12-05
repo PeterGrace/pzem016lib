@@ -2,8 +2,24 @@
 name = "pzem016lib"
 version = "0.1.0"
 edition = "2021"
+default-run = "pzem016lib-test"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "pzem016lib-test"
+path = "./src/bin/pzem016lib-test/main.rs"
+
+[[bin]]
+name = "set_slave"
+path = "./src/bin/set_slave/main.rs"
+
+[[bin]]
+name = "find_device"
+path = "./src/bin/find_device/main.rs"
+[[bin]]
+name = "find_pete"
+path = "./src/bin/find_pete/main.rs"
 
 [dependencies]
 lazy_static = "1.4.0"
@@ -14,4 +30,5 @@ tokio-modbus = { version = "0.9.0", features = ["tcp"] }
 tokio-retry = "0.3.0"
 tracing = "0.1.40"
 tracing-log = "0.2.0"
-tracing-subscriber = "0.3.18"
+tracing-subscriber = {version = "0.3.18", features = ["fmt", "env-filter"]}
+anyhow = "1.0.75"
